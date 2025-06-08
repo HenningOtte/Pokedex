@@ -1,0 +1,176 @@
+.card {
+    height: 296px;
+    width: 264px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.pokemon-img {
+    position: relative;
+    top: -45px;
+    height: 264px;
+    width: 264px;
+    margin-bottom: -68px;
+}
+
+.name {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    z-index: 1;
+}
+
+.types {
+    display: flex;
+    gap: 8px;
+}
+
+.type {
+    height: 24px;
+    width: 24px;
+    padding: 3px;
+}
+
+.grass-border {
+    border: 2px solid #82D371;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #6BFF8B);
+}
+
+.fire-border {
+    border: 2px solid #FFB13F;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #FFB13F);
+}
+
+.water-border {
+    border: 2px solid #9AF7FF;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #9AF7FF);
+}
+
+.bug-border {
+    border: 2px solid #C8F15A;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #C8F15A);
+}
+
+.poison-border {
+    border: 2px solid #B35AF1;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #B35AF1);
+}
+
+.flying-border {
+    border: 2px solid #9AF7FF;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #9AF7FF);
+}
+
+.normal-border {
+    border: 2px solid #e9e9e9;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #e9e9e9);
+}
+
+.grass {
+    background: url(../assets/bg/bg_plant.png), radial-gradient(circle at 132px 50px, #82D371 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -24px, center;
+    background-size: contain, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(130, 211, 113, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.grass:hover {
+    box-shadow: 0px 16px 60px rgb(130, 211, 113, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.fire {
+    background: url(../assets/bg/bg_flame.png), radial-gradient(circle at 132px 50px, #FF9700 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -120px, center;
+    background-size: 148%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(255, 151, 0, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fire:hover {
+    box-shadow: 0px 16px 60px rgb(255, 151, 0, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.water {
+    background: url(../assets/bg/bg_water.png), radial-gradient(circle at 132px 50px, #9AF7FF 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -130px, center;
+    background-size: 160%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(154, 247, 255, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.water:hover {
+    box-shadow: 0px 16px 60px rgb(154, 247, 255, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.bug {
+    background: url(../assets/bg/bg_bug.png), radial-gradient(circle at 132px 50px, #A9CD47 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -80px, center;
+    background-size: 120%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(169, 205, 71, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bug:hover {
+    box-shadow: 0px 16px 60px rgb(169, 205, 71, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.normal {
+    background: url(../assets/bg/bg_normal.png), radial-gradient(circle at 132px 50px, #e9e9e9 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -80px, center;
+    background-size: 120%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(233, 233, 233, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.normal:hover {
+    box-shadow: 0px 16px 60px rgb(233, 233, 233, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.poison {
+    background: url(../assets/bg/bg_poison.png), radial-gradient(circle at 132px 50px, #B35AF1 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -80px, center;
+    background-size: 120%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poison:hover {
+    box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}

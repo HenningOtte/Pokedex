@@ -1,0 +1,149 @@
+.pokemon-detail-card {
+    height: 520px;
+    width: 346px;
+    background-color: red;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pokemon-title {
+    color: white;
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    z-index: 1;
+}
+
+.detail-card-img {
+    height: 296px;
+    width: 296px;
+    margin-top: -24px;
+    margin-bottom: -80px;
+    position: relative;
+    z-index: 1;
+}
+
+.info-container {
+    width: 100%;
+    height: 282px;
+    padding: 68px 24px 24px;
+    background-color: rgb(29, 29, 29, 0.5);
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.detail-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.detail-nav button {
+    cursor: pointer;
+    z-index: 100;
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.detail-nav button:hover {
+    color: #6BFF8B;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    filter: drop-shadow(0px 0px 6px #6BFF8B);
+}
+
+.detail-grass {
+    background: url(../assets/bg/bg_plant.png), radial-gradient(circle at 132px 100px, #82D371 0%, #1D1D1D 75%);
+    background-position: 50% 10px, center;
+    background-size: 85%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(130, 211, 113, 0.5);
+}
+
+.main-specs {
+    display: flex;
+    color: white;
+    font-size: 14px;
+}
+
+.main-keys-values {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 50%;
+}
+
+.stats-keys {
+    padding-right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.loading-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.loading-bar {
+    width: 184px;
+    height: 16px;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.progress {
+    width: 92px;
+    height: 16px;
+    background-color: #6BFF8B;
+    border-radius: 3px;
+}
+
+.evo-chain {
+    height: 128px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: scroll;
+}
+
+.evo-chain::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.evo-chain::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.evo-step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.evo-form-pic {
+    height: 96px;
+    width: 96px;
+}
+
+.evo-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

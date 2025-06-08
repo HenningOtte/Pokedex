@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style/preview_card.css">
+    <link rel="stylesheet" href="./style/detail_card.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/createPokemonData.js"></script>
+    <script src="./scripts/cardRenderer.js"></script>
+    <script src="./scripts/pokemonFilters.js"></script>
+    <script src="script.js"></script>
+    <title>Pokedex</title>
+</head>
+
+<body onload="init()">
+    <main>
+        <div class="gallery d-none">
+            <div class="pokemon-detail-card detail-grass">
+                <span class="pokemon-title">#3 Venusaur</span>
+                <img src="./assets/pokemons/venusaur.png" alt="" class="detail-card-img">
+                <div class="info-container">
+                    <div class="detail-nav">
+                        <button>MAIN</button>
+                        <button>STATS</button>
+                        <button>EVO CHAIN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="content">
+        </div>
+    </main>
+</body>
+
+</html>
