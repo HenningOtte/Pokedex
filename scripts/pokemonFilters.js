@@ -3,15 +3,11 @@ async function filterEvolutionChain(url) {
     const responseToJson = await responce.json();
     let evolutionArr = [];
     evolutionArr.push(responseToJson.chain.species.name);
-    if (checkEvolution(responseToJson.chain.evolves_to)) return evolutionArr;
+    if (responseToJson.chain.evolves_to.length <= 0) {return evolutionArr};
     evolutionArr.push(responseToJson.chain.evolves_to[0].species.name);
-    if (checkEvolution(responseToJson.chain.evolves_to[0].evolves_to)) return evolutionArr;
+    if (responseToJson.chain.evolves_to[0].evolves_to.length <= 0) {return evolutionArr};
     evolutionArr.push(responseToJson.chain.evolves_to[0].evolves_to[0].species.name);
     return evolutionArr;
-};
-
-function checkEvolution(evolution) {
-    return evolution.length <= 0 ? false : true;
 };
 
 function filterAbilities(abilities) {

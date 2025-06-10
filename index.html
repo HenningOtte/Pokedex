@@ -21,18 +21,16 @@
 
 <body onload="init()">
     <main>
-        <div class="gallery d-none">
-            <div class="pokemon-detail-card detail-grass">
-                <span class="pokemon-title">#3 Venusaur</span>
-                <img src="./assets/pokemons/venusaur.png" alt="" class="detail-card-img">
-                <div class="info-container">
-                    <div class="detail-nav">
-                        <button>MAIN</button>
-                        <button>STATS</button>
-                        <button>EVO CHAIN</button>
-                    </div>
-                </div>
+        <div class="gallery d-none" id="gallery"></div>
+        <nav class="navbar">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="./assets/logo/pokedex_logo.png" alt="" class="logo-icon">
+                    <span>Pokedex</span>
+                </div>                
+                <input type="text" maxlength="16" placeholder="Search for a Pokémon...">
             </div>
+        </nav>        
         </div>
         <div class="content" id="content">
         </div>
