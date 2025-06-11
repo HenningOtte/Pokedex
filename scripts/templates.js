@@ -101,3 +101,11 @@ function evo_step(name, id) {
         </div>
     `
 };
+
+function nothing_found() {
+    return `
+        <div class="nothing-found">
+            <span>uuuups, nothing found</span>
+        </div>
+    `
+};

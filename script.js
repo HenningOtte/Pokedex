@@ -2,10 +2,10 @@ let BASE_URL = `https://pokeapi.co/api/v2/`;
 let pokemonIndex = [];
 let visiblePokemon = [];
 let pokemonDetails = [];
-let limit = 24;
+let limit = 40;
 let amountOfCards = {
     'start': 0,
-    'amount': limit,
+    'amount': 40,
 };
 let maxValues = {
     'hp': 255,
@@ -32,6 +32,8 @@ async function usePromise() {
         await loadPokemonIndex();
         let evolutionArray = await createEvolutionArr(amountOfCards.start, amountOfCards.amount);
         await loadPokemonDetails(amountOfCards.start, amountOfCards.amount, evolutionArray);
+        console.log(pokemonIndex);        
+        console.log(pokemonDetails);        
     } catch (error) {
         console.error(error);
     }
@@ -88,30 +90,6 @@ async function createEvolutionArr(start, amount) {
         evolutionArr.push(await filterEvolutionChain(responseToJson.evolution_chain.url))
     };
     return evolutionArr;
-};
-
-function renderPreviewCards() {
-    let content = document.getElementById('content');
-    visiblePokemon.forEach((pokemon) => {
-        let index = checkDetailsLoaded(pokemon);
-        if (index !== undefined && pokemonDetails[index].id) {
-            renderPreviewCard(
-                pokemonDetails[index].name,
-                pokemonDetails[index].types,
-                pokemonDetails[index].id
-            );
-        };
-    });
-};
-
-function checkDetailsLoaded(pokemon) {
-    for (let index = 0; index < pokemonDetails.length; index++) {
-        if (pokemonDetails[index].id === pokemon.id) {
-            return index;
-        };
-    };
-    console.error('checkDetailsLoaded: ID not found in: "pokemonDetails[]"!');
-    return undefined;
 };
 
 function openDetailCard(id) {
@@ -177,7 +155,7 @@ function renderEvoStep(pokemon) {
     });
 };
 
-function importEvoIcons(pokemon) {    
+function importEvoIcons(pokemon) {
     let typesString = createTypeIcons(pokemon.types);
     let evoIcons = document.getElementById(`evo_icons_${pokemon.id}`);
     evoIcons.innerHTML += typesString;
@@ -202,4 +180,94 @@ function abilitiesAsString(abilities) {
         abilitiesString += ', ';
     };
     return abilitiesString;
+};
+
+function renderPreviewCards() {
+    let content = document.getElementById('content');
+    content.innerHTML = '';
+    visiblePokemon.forEach((pokemon) => {
+        let index = checkDetailsLoaded(pokemon);
+        if (index !== undefined) {
+            renderPreviewCard(
+                pokemonDetails[index].name,
+                pokemonDetails[index].types,
+                pokemonDetails[index].id
+            );
+        };
+    });
+};
+
+function checkDetailsLoaded(pokemon) {
+    for (let index = 0; index < pokemonDetails.length; index++) {
+        if (pokemonDetails[index].id === pokemon.id) {
+            return index;
+        };
+    };
+    return undefined;
+};
+
+async function userInput(value) {
+    if (value.length <= 0) {
+        renderPreviewCards();
+        console.log(visiblePokemon);
+        
+    } else if (value.length > 2) {
+        visiblePokemon = [];
+        await startSearching(value);
+        renderPreviewCards();
+    };
+};
+
+async function startSearching(pokename) {    
+    let searchResult = [];    
+    for (let index = 0; index < pokemonIndex.length; index++) {        
+        if (pokemonIndex[index].name.match(pokename)) {            
+            searchResult.push(pokemonIndex[index].id);
+        };
+    };    
+    await searchInDetails(searchResult);
+    if (searchResult.length === 0) {
+        document.getElementById('content').innerHTML = nothing_found();
+    } else renderPreviewCards();  
+};
+
+async function searchInDetails(searchResult) {    
+    for (let i = 0; i < searchResult.length; i++) {
+        let pokeID = searchResult[i];
+        let found = false;
+        for (let index = 0; index < pokemonDetails.length; index++) {            
+            if (pokemonDetails[index].id === pokeID) {
+                visiblePokemon.push(pokemonDetails[index]);
+                found = true;
+                console.log(found);
+                break;
+            }
+        }                
+        if (found === false) await fetchSingleCard(pokeID); 
+    }; 
+};
+
+async function fetchSingleCard(id) {
+    let evolutionArr = await fetchSingleEvolutionArray(id);
+    const path = `pokemon/${id}/`;
+    const responce = await fetch(BASE_URL + path);
+    const responseToJson = await responce.json();
+    const pokemonObj = createPokemonObj(
+        responseToJson,
+        filterAbilities(responseToJson.abilities),
+        filterStats(responseToJson.stats),
+        filterTypes(responseToJson.types),
+        evolutionArr[0]
+    );
+    pokemonDetails.push(pokemonObj);
+    visiblePokemon.push(pokemonObj);
+};
+
+async function fetchSingleEvolutionArray(id) {
+    let evolutionArr = [];
+    const path = `pokemon-species/${id}`;
+    const responce = await fetch(BASE_URL + path);
+    const responseToJson = await responce.json();
+    evolutionArr.push(await filterEvolutionChain(responseToJson.evolution_chain.url))
+    return evolutionArr;
 };
