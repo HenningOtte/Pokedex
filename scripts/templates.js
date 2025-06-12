@@ -9,7 +9,7 @@ function preview_card(name, type, icons, id) {
 };
 
 function type(type) {
-    return `<img src="./assets/icons/${type}_Icon.png" alt="" class="type ${type}-border"></img>`
+    return `<img src="./assets/icons/${type}_icon.png" alt="" class="type ${type}-border"></img>`
 };
 
 function pokemon_detail(name, type, id) {

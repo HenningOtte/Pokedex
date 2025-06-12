@@ -75,6 +75,7 @@ nav {
     color: white;
     font-size: 24px;
     font-weight: 600;
+    user-select: none;
 }
 
 .logo-icon {
@@ -102,7 +103,17 @@ nav {
     color: white;
     font-size: 24px;
 }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 @media (max-width: 430px) {
+    .content {
+        padding: 0;
+    }
+
     .pokemon-detail-card {
         width: 300px;
     }

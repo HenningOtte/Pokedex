@@ -12,7 +12,7 @@ async function startSearching(pokename) {
 function getIdForPokemonName(pokename) {
     let searchResult = [];
     for (let index = 0; index < pokemonIndex.length; index++) {
-        if (pokemonIndex[index].name.match(pokename)) {
+        if (pokemonIndex[index].name.match(pokename) && pokemonIndex[index].id <= amountOfCards.maxIDs) {
             searchResult.push(pokemonIndex[index].id);
         };
     };
@@ -26,10 +26,9 @@ async function searchInDetails(searchResult) {
             let pokemonObj = await fetchSingleCard(searchResult[i]);            
             pokemonDetails.push(pokemonObj);
             pushPokemonIfMaxID(pokemonObj);
-            // visiblePokemon.push(pokemonObj);
         }
     }
-}
+};
 
 function pushPokemonIfMaxID(pokemonObj) {
     if (pokemonObj.id <= 60) {
@@ -46,5 +45,4 @@ function checkAndAddPokemon(result) {
         };
     };
     return false;
-};
-
+}

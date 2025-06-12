@@ -12,19 +12,22 @@
     <link rel="stylesheet" href="./style/detail_card.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./style/loading.css">
+    <script src="./scripts/globals.js"></script>
+    <script src="./scripts/toggleClasses.js"></script>
     <script src="./scripts/templates.js"></script>
     <script src="./scripts/createPokemonData.js"></script>
     <script src="./scripts/cardRenderer.js"></script>
     <script src="./scripts/pokemonFilters.js"></script>
     <script src="./scripts/loadSingleCard.js"></script>
     <script src="./scripts/searchFunctions.js"></script>
+    <script src="./scripts/evolution-handler.js"></script>
     <script src="script.js"></script>
     <title>Pokedex</title>
 </head>
 
-<body onload="init()">
+<body onload="init()" class="">
     <main>
-        <div class="overlay d-none" id="loading">
+        <div class="loading d-none" id="loading">
             <img src="./assets/icons/pokeball.png" alt="" class="spinner">
             ...loading
         </div>

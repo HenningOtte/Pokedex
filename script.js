@@ -1,28 +1,4 @@
-let BASE_URL = `https://pokeapi.co/api/v2/`;
-let pokemonIndex = [];
-let visiblePokemon = [];
-let pokemonDetails = [];
-let amountOfCards = {
-    'start': 0,
-    'amount': 20,
-    'maxIDs': 60,
-    'loadIncrement': 20,
-    'maxIndex': 1000 
-};
-let maxValues = {
-    'hp': 255,
-    'attack': 190,
-    'defense': 230,
-    'special_attack': 192,
-    'special_defense': 200,
-    'speed': 200
-};
 let displayedPokemon = [];
-
-function loadingSpinner() {
-    const spinner = document.getElementById('loading');
-    spinner.classList.toggle('d-none');    
-};
 
 async function init() {
     loadingSpinner()
@@ -100,13 +76,13 @@ async function createEvolutionArr(start, amount) {
 };
 
 async function openDetailCard(id) {
+    toggleScrolling();
     displayedPokemon = [];
     const gallery = document.getElementById('gallery');
     gallery.classList.toggle('d-none');
     pokemonDetails.forEach((pokemon) => {
         if (id === pokemon.id) {
-            isEvolutionComplete(pokemon.evolution_chain);
-            
+            isEvolutionComplete(pokemon.evolution_chain);            
             displayedPokemon.push(pokemon);
             gallery.innerHTML = '';
             gallery.innerHTML = pokemon_detail(pokemon.name, pokemon.types[0], pokemon.id);
@@ -114,12 +90,6 @@ async function openDetailCard(id) {
             return;
         };
     });
-};
-
-async function isEvolutionComplete(evolution) {
-    for (let index = 0; index < evolution.length; index++) {
-        await startSearching(evolution[index]);
-    };
 };
 
 function checkDetailsLoaded(pokemon) {
@@ -133,6 +103,7 @@ function checkDetailsLoaded(pokemon) {
 
 async function checkForInputAndSearch(value) {
     if (value.length <= 0) {
+        visiblePokemon = [];
         importOldIds();
         renderPreviewCards();
 
@@ -144,20 +115,12 @@ async function checkForInputAndSearch(value) {
 };
 
 function importOldIds() {
-    visiblePokemon = [];
     pokemonDetails.forEach((pokemon) => {
         if (pokemon.id <= amountOfCards.amount) {
             visiblePokemon.push(pokemon);
         };
     });
 };
-
-document.addEventListener('click', (event) => {
-    const gallery = document.getElementById('gallery');
-    if (event.target.className === 'overlay') {
-        gallery.classList.toggle('d-none');
-    };
-});
 
 async function loadMore() {
     if (amountOfCards.amount >= amountOfCards.maxIDs) return;
@@ -196,4 +159,4 @@ function reloadVisiblePokemon(end) {
             };
         });
     };
-};
+};;
