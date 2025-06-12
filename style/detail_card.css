@@ -33,6 +33,7 @@
     height: 282px;
     padding: 68px 24px 24px;
     background-color: rgb(29, 29, 29, 0.5);
+    backdrop-filter: blur(5px);
     border-radius: 16px;
     box-sizing: border-box;
 }
@@ -42,6 +43,7 @@
     justify-content: center;
     margin-bottom: 16px;
     gap: 16px;
+    z-index: 10;
 }
 
 .detail-nav button {
@@ -70,6 +72,7 @@
     text-decoration-thickness: 2px;
     text-underline-offset: 8px;
     filter: drop-shadow(0px 0px 6px white);
+    z-index: 100;
 }
 
 .main-specs {
@@ -201,4 +204,36 @@
     background-size: 110%, cover;
     background-repeat: no-repeat, no-repeat;
     box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.5);
+}
+
+.detail-fairy {
+    background: url(../assets/bg/bg_fairy.png), radial-gradient(circle at 132px 100px, #ff39b1 0%, #1D1D1D 75%);
+    background-position: 50% -70px, center;
+    background-size: 130%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.5);
+}
+
+.detail-electric {
+    background: url(../assets/bg/bg_electric.png), radial-gradient(circle at 132px 100px, #fff000 0%, #1D1D1D 75%);
+    background-position: 50% -70px, center;
+    background-size: 130%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(255, 240, 0, 0.35);
+}
+
+.detail-ground {
+    background: url(../assets/bg/bg_earth.png), radial-gradient(circle at 132px 100px, #ff7935 0%, #1D1D1D 75%);
+    background-position: 50% -70px, center;
+    background-size: 130%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(255, 121, 53, 0.35);
+}
+
+.detail-fighting {
+    background: url(../assets/bg/bg_fighting.png), radial-gradient(circle at 132px 100px, #ff7935 0%, #1D1D1D 75%);
+    background-position: 50% -70px, center;
+    background-size: 130%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(255, 121, 53, 0.35);
 }

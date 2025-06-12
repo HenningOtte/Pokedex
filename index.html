@@ -11,29 +11,40 @@
     <link rel="stylesheet" href="./style/preview_card.css">
     <link rel="stylesheet" href="./style/detail_card.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/loading.css">
     <script src="./scripts/templates.js"></script>
     <script src="./scripts/createPokemonData.js"></script>
     <script src="./scripts/cardRenderer.js"></script>
     <script src="./scripts/pokemonFilters.js"></script>
+    <script src="./scripts/loadSingleCard.js"></script>
+    <script src="./scripts/searchFunctions.js"></script>
     <script src="script.js"></script>
     <title>Pokedex</title>
 </head>
 
 <body onload="init()">
     <main>
-        <div class="gallery d-none" id="gallery"></div>
-        <nav class="navbar">
+        <div class="overlay d-none" id="loading">
+            <img src="./assets/icons/pokeball.png" alt="" class="spinner">
+            ...loading
+        </div>
+        <div class="overlay d-none" id="gallery"></div>
+        <nav>
             <div class="navbar">
                 <div class="logo">
                     <img src="./assets/logo/pokedex_logo.png" alt="" class="logo-icon">
                     <span>Pokedex</span>
                 </div>
-                <input type="text" maxlength="16" placeholder="Search for a Pokémon..." id="search_Input" oninput="userInput(value)">
+                <input type="text" maxlength="16" placeholder="Search for a Pokémon..." id="search_Input"
+                    oninput="checkForInputAndSearch(value)">
             </div>
         </nav>
         </div>
         <div class="content" id="content">
-        </div>        
+        </div>
+        <div class="loadMore">
+            <button onclick="loadMore(amountOfCards)" class="loadingbtn">load more</button>
+        </div>
     </main>
 </body>
 

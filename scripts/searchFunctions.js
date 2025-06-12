@@ -1,0 +1,50 @@
+async function startSearching(pokename) {
+    let searchResult = getIdForPokemonName(pokename);
+    if (searchResult.length > 0) {
+        await searchInDetails(searchResult);
+    } else {
+        setTimeout(() => {
+            document.getElementById('content').innerHTML = nothing_found();
+        }, 50);
+    }
+};
+
+function getIdForPokemonName(pokename) {
+    let searchResult = [];
+    for (let index = 0; index < pokemonIndex.length; index++) {
+        if (pokemonIndex[index].name.match(pokename)) {
+            searchResult.push(pokemonIndex[index].id);
+        };
+    };
+    return searchResult;
+};
+
+async function searchInDetails(searchResult) {
+    for (let i = 0; i < searchResult.length; i++) {
+        let found = checkAndAddPokemon(searchResult[i]);
+        if (found === false) {
+            let pokemonObj = await fetchSingleCard(searchResult[i]);            
+            pokemonDetails.push(pokemonObj);
+            pushPokemonIfMaxID(pokemonObj);
+            // visiblePokemon.push(pokemonObj);
+        }
+    }
+}
+
+function pushPokemonIfMaxID(pokemonObj) {
+    if (pokemonObj.id <= 60) {
+        console.log(pokemonObj.id);        
+        visiblePokemon.push(pokemonObj);
+    };
+};
+
+function checkAndAddPokemon(result) {
+    for (let index = 0; index < pokemonDetails.length; index++) {
+        if (pokemonDetails[index].id === result) {
+            visiblePokemon.push(pokemonDetails[index]);
+            return true
+        };
+    };
+    return false;
+};
+
