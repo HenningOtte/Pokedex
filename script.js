@@ -1,5 +1,3 @@
-let displayedPokemon = [];
-
 async function init() {
     loadingSpinner()
     await loadData();
@@ -76,7 +74,7 @@ async function createEvolutionArr(start, amount) {
 };
 
 async function openDetailCard(id) {
-    toggleScrolling();
+    toggleClasses();
     displayedPokemon = [];
     const gallery = document.getElementById('gallery');
     gallery.classList.toggle('d-none');
@@ -90,7 +88,7 @@ async function openDetailCard(id) {
             return;
         };
     });
-};
+};;
 
 function checkDetailsLoaded(pokemon) {
     for (let index = 0; index < pokemonDetails.length; index++) {

@@ -2,6 +2,7 @@ let BASE_URL = `https://pokeapi.co/api/v2/`;
 let pokemonIndex = [];
 let visiblePokemon = [];
 let pokemonDetails = [];
+let displayedPokemon = [];
 let amountOfCards = {
     'start': 0,
     'amount': 20,
