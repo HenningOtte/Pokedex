@@ -1,11 +1,13 @@
 async function startSearching(pokename) {
     visiblePokemon = [];
-    const searchResult = getIdForPokemonName(pokename);
-
+    let searchResult = getIdForPokemonName(pokename);
     if (searchResult.length > 0) {
         await searchInDetails(searchResult);
     } else {
-        document.getElementById('content').innerHTML = nothing_found();
+        visiblePokemon = [];
+        setTimeout(() => {
+            document.getElementById('content').innerHTML = nothing_found();
+        }, 50);
     }
 };
 
@@ -20,22 +22,13 @@ function getIdForPokemonName(pokename) {
 };
 
 async function searchInDetails(searchResult) {
-    const loadPromises = searchResult.map(async id => {
-        const found = checkAndAddPokemon(id);
-
-        if (!found) {
-            const pokemonObj = await fetchSingleCard(id);
+    for (let i = 0; i < searchResult.length; i++) {
+        let found = checkAndAddPokemon(searchResult[i]);
+        if (found === false) {
+            let pokemonObj = await fetchSingleCard(searchResult[i]);            
             pokemonDetails.push(pokemonObj);
             pushPokemonIfMaxID(pokemonObj);
         }
-    });
-
-    await Promise.all(loadPromises);
-};
-
-function pushPokemonIfMaxID(pokemonObj) {
-    if (pokemonObj.id <= 60) {
-        visiblePokemon.push(pokemonObj);
     }
 };
 
@@ -47,46 +40,16 @@ function checkAndAddPokemon(id) {
         }
     }
     return false;
-};
-
-function addToVisible(pokemon) {
-    if (!visiblePokemon.some(p => p.id === pokemon.id)) {
-        visiblePokemon.push(pokemon);
-    }
-};
+}
 
 function pushPokemonIfMaxID(pokemonObj) {
     if (pokemonObj.id <= amountOfCards.maxIDs) {
         addToVisible(pokemonObj);
     }
-};
+}
 
-async function searchForEvolution(pokename) {
-    let searchResult = getIdForEvolution(pokename);
-    if (searchResult.length > 0) {
-        await searchInDetails(searchResult);
-    }
-};
-
-function getIdForPokemonName(pokename) {
-    let searchResult = [];
-    for (let i = 0; i < pokemonIndex.length; i++) {
-        if (
-            pokemonIndex[i].name.toLowerCase().includes(pokename.toLowerCase()) &&
-            pokemonIndex[i].id <= amountOfCards.maxIDs
-        ) {
-            searchResult.push(pokemonIndex[i].id);
-        }
-    }
-    return searchResult;
-};
-
-function getIdForEvolution(pokename) {
-    let searchResult = [];
-    for (let i = 0; i < pokemonIndex.length; i++) {
-        if (pokemonIndex[i].name.toLowerCase().includes(pokename.toLowerCase())) {
-            searchResult.push(pokemonIndex[i].id);
-        }
-    }
-    return searchResult;
+function addToVisible(pokemon) {
+    if (!visiblePokemon.some(p => p.id === pokemon.id)) {
+        visiblePokemon.push(pokemon);
+    }    
 };

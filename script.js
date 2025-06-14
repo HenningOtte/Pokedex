@@ -160,6 +160,7 @@ async function checkForInputAndSearch(value) {
     visiblePokemon = [];
     maxInpt(value);
     if (value.length <= 0) {
+        visiblePokemon = [];
         loadCurrentIds();
         renderPreviewCards();
 
