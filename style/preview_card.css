@@ -25,6 +25,7 @@
     font-weight: 600;
     margin-bottom: 8px;
     z-index: 1;
+    text-transform: capitalize;
 }
 
 .types {

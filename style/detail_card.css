@@ -101,6 +101,7 @@
     font-weight: 600;
     margin-bottom: 8px;
     z-index: 2;
+    text-transform: capitalize;
 }
 
 .detail-card-img {
