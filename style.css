@@ -145,6 +145,17 @@ nav {
     .arrow-left {
         right: -60px !important;
     }
+
+}
+
+@media (max-width: 490px) {
+    .arrow-right {
+        left: -45px;
+    }
+
+    .arrow-left {
+        right: -45px;
+    }
 }
 
 

@@ -151,9 +151,7 @@ function checkDetailsLoaded(pokemon) {
 };
 
 async function isEvolutionComplete(evolution) {
-    for (let index = 0; index < evolution.length; index++) {
-        await searchForEvolution(evolution[index]);
-    };
+    await searchForEvolution(evolution);
 };
 
 async function checkForInputAndSearch(value) {
@@ -165,12 +163,13 @@ async function checkForInputAndSearch(value) {
         renderPreviewCards();
 
     } else if (value.length > 2) {
+        visiblePokemon = [];
         await startSearching(value);
         renderPreviewCards();
     };
 };
 
-function maxInpt(value) {   
+function maxInpt(value) {
     const maxInpt = document.getElementById('max_inpt');
     if (value.length < 3) {
         maxInpt.innerHTML = 'Min. 3 letters to search';

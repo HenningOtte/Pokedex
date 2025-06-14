@@ -29,6 +29,7 @@
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: 55% 50%;
+    left: 32px;
 }
 
 .arrow-left {
@@ -37,6 +38,7 @@
     background-repeat: no-repeat;
     background-position: 55% 50%;
     transform: rotate(180deg); 
+    right: 32px;
 }
 
 .close-btn-container {
