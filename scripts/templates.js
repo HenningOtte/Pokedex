@@ -15,6 +15,7 @@ function type(type) {
 function pokemon_detail(name, type, id) {
     return `
         <div class="pokemon-detail-card detail-${type}">
+            <div class="close-btn-container"><button class="btn-close-card" id="close_card" onclick="closeDetailCard()"></button></div>
             <span class="pokemon-title">#${id} ${name}</span>
             <img src="./assets/pokemons/${name}.png" alt="" class="detail-card-img">
             <div class="info-container" id="info_container">

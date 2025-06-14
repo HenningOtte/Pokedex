@@ -41,8 +41,11 @@
                     <img src="./assets/logo/pokedex_logo.png" alt="" class="logo-icon">
                     <span>Pokedex</span>
                 </div>
-                <input type="text" maxlength="16" placeholder="Search for a Pokémon..." id="search_Input"
-                    oninput="checkForInputAndSearch(value)">
+                <div class="input_container">
+                    <input type="text" maxlength="16" placeholder="Search for a Pokémon..." id="search_Input"
+                        oninput="checkForInputAndSearch(value)" onfocusout="inputFocusout()">
+                    <span class="max-input" id="max_inpt"></span></span>
+                </div>
             </div>
         </nav>
         </div>

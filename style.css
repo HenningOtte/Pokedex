@@ -84,6 +84,21 @@ nav {
     width: 56px;
 }
 
+.input_container {
+    height: 100%;
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.max-input {
+    height: 14px;
+    color: #6BFF8B;
+    font-size: 12px;
+    user-select: none;
+}
+
 .navbar input {
     height: 16px;
     width: 192px;

@@ -98,6 +98,12 @@
     filter: drop-shadow(0px 0px 4px #ff7935);
 }
 
+.psychic-border {
+    border: 2px solid #B35AF1;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #B35AF1);
+}
+
 .grass {
     background: url(../assets/bg/bg_plant.png), radial-gradient(circle at 132px 50px, #82D371 0%, #1D1D1D 75%);
     background-size: cover;
@@ -255,4 +261,37 @@
 .fighting:hover {
     box-shadow: 0px 16px 60px rgb(255, 121, 53, 0.65);
     transform: scale(1.05);
-    z-index: 1;}
+    z-index: 1;
+}
+
+.rock {
+    background: url(../assets/bg/bg_rock.png), radial-gradient(circle at 132px 50px, #c8b686 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -80px, center;
+    background-size: 120%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(200, 182, 134, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rock:hover {
+    box-shadow: 0px 16px 60px rgb(200, 182, 134, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.psychic {
+    background: url(../assets/bg/bg_psychic.png), radial-gradient(circle at 132px 50px, #B35AF1 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -80px, center;
+    background-size: 120%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.psychic:hover {
+    box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.65);
+    transform: scale(1.05);
+    z-index: 1;
+}

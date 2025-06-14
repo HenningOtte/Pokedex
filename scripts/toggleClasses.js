@@ -22,9 +22,16 @@ function toggleScale() {
 document.addEventListener('click', (event) => {
     const gallery = document.getElementById('gallery');
     const cardsContainer = document.getElementById('cards_container');
-    if (event.target.className === 'overlay') {        
+    if (event.target.className === 'overlay') {
         cardsContainer.innerHTML = '';
         toggleScrolling();
         gallery.classList.toggle('d-none');
     };
 });
+
+function closeDetailCard() {
+    const cardsContainer = document.getElementById('cards_container');
+    cardsContainer.innerHTML = '';
+    toggleScrolling();
+    gallery.classList.toggle('d-none');
+};

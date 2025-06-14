@@ -6,7 +6,7 @@ let displayedPokemon = [];
 let amountOfCards = {
     'start': 0,
     'amount': 20,
-    'maxIDs': 60,
+    'maxIDs': 80,
     'loadIncrement': 20,
     'maxIndex': 979 
 };

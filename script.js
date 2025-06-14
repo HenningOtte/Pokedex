@@ -156,35 +156,31 @@ async function isEvolutionComplete(evolution) {
     };
 };
 
-async function searchForEvolution(pokename) {
-    let searchResult = getIdForEvolution(pokename);
-    if (searchResult.length > 0) {
-        await searchInDetails(searchResult);
-    };
-};
-
-function getIdForEvolution(pokename) {
-    let searchResult = [];
-    for (let index = 0; index < pokemonIndex.length; index++) {
-        if (pokemonIndex[index].name.match(pokename)) {
-            searchResult.push(pokemonIndex[index].id);
-        };
-    };
-    return searchResult;
-};
-
 async function checkForInputAndSearch(value) {
     visiblePokemon = [];
+    maxInpt(value);
     if (value.length <= 0) {
-        visiblePokemon = [];
         loadCurrentIds();
         renderPreviewCards();
 
     } else if (value.length > 2) {
-        visiblePokemon = [];
         await startSearching(value);
         renderPreviewCards();
     };
+};
+
+function maxInpt(value) {   
+    const maxInpt = document.getElementById('max_inpt');
+    if (value.length < 3) {
+        maxInpt.innerHTML = 'Min. 3 letters to search';
+    } else {
+        maxInpt.innerHTML = '';
+    }
+};
+
+function inputFocusout() {
+    const maxInpt = document.getElementById('max_inpt');
+    maxInpt.innerHTML = '';
 };
 
 function loadCurrentIds() {

@@ -39,6 +39,40 @@
     transform: rotate(180deg); 
 }
 
+.close-btn-container {
+    height: 40px;
+    width: 100%;
+    margin: -20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn-close-card {
+    background-image: url(../assets/icons/close.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -40px;
+    background-color: rgba(255, 255, 255, 0);
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: 2px solid white;
+    filter: drop-shadow(0px 0px 4px rgb(255, 255, 255, 0.5));
+    z-index: 100;
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+    position: relative;
+    backdrop-filter: blur(5px);
+    top: 80px;
+    right: 60px;
+}
+
+.btn-close-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0px 0px 4px rgb(255, 255, 255, 0.5));
+}
+
 .pokemon-detail-card {
     height: 520px;
     width: 346px;
@@ -287,4 +321,24 @@
     background-size: 130%, cover;
     background-repeat: no-repeat, no-repeat;
     box-shadow: 0px 16px 60px rgb(255, 121, 53, 0.35);
+}
+
+.detail-rock {
+    background: url(../assets/bg/bg_rock.png), radial-gradient(circle at 132px 50px, #c8b686 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -40px, center;
+    background-size: 110%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(200, 182, 134, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.detail-psychic {
+    background: url(../assets/bg/bg_psychic.png), radial-gradient(circle at 132px 50px, #B35AF1 0%, #1D1D1D 75%);
+    background-size: cover;
+    background-position: 50% -80px, center;
+    background-size: 120%, cover;
+    background-repeat: no-repeat, no-repeat;
+    box-shadow: 0px 16px 60px rgb(179, 90, 241, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
