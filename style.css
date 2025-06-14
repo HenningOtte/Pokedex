@@ -121,8 +121,8 @@ nav {
 }
 
 .stop-scrolling {
-  height: 100%;
-  overflow: hidden;
+    height: 100%;
+    overflow: hidden;
 }
 
 @media (max-width: 430px) {
@@ -136,6 +136,14 @@ nav {
 
     .loading-bar {
         width: 130px;
+    }
+
+    .arrow-right {
+        left: -60px !important;
+    }
+
+    .arrow-left {
+        right: -60px !important;
     }
 }
 
@@ -153,7 +161,7 @@ nav {
     .content {
         margin-top: 230px;
     }
-    
+
 }
 
 @media (min-width: 1440px) {
