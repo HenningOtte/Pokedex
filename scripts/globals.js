@@ -8,7 +8,7 @@ let amountOfCards = {
     'amount': 20,
     'maxIDs': 60,
     'loadIncrement': 20,
-    'maxIndex': 1000 
+    'maxIndex': 979 
 };
 let maxValues = {
     'hp': 255,

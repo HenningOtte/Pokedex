@@ -15,12 +15,9 @@
     <script src="./scripts/globals.js"></script>
     <script src="./scripts/toggleClasses.js"></script>
     <script src="./scripts/templates.js"></script>
-    <script src="./scripts/createPokemonData.js"></script>
     <script src="./scripts/cardRenderer.js"></script>
     <script src="./scripts/pokemonFilters.js"></script>
-    <script src="./scripts/loadSingleCard.js"></script>
     <script src="./scripts/searchFunctions.js"></script>
-    <script src="./scripts/evolution-handler.js"></script>
     <script src="script.js"></script>
     <title>Pokedex</title>
 </head>
@@ -31,7 +28,13 @@
             <img src="./assets/icons/pokeball.png" alt="" class="spinner">
             ...loading
         </div>
-        <div class="overlay d-none" id="gallery"></div>
+        <div class="overlay d-none" id="gallery">
+            <div class="btns_gallery">
+                <button class="btn-gallery arrow-left" id="btn_gallery_left" onclick="nextCard()"></button>
+                <button class="btn-gallery arrow-right" id="btn_gallery_right" onclick="nextCard()"></button>
+            </div>
+            <div class="" id="cards_container"></div>
+        </div>
         <nav>
             <div class="navbar">
                 <div class="logo">
