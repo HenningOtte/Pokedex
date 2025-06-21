@@ -231,6 +231,8 @@ async function loadIds(idsNotFound) {
 };
 
 function reload() {
+    let search_Input = document.getElementById('search_Input');
+    search_Input.value = '';
     visiblePokemon = [];
     reloadVisiblePokemon(amountOfCards.amount);
     renderPreviewCards();   
