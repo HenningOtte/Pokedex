@@ -230,6 +230,11 @@ async function loadIds(idsNotFound) {
     };
 };
 
+function reload() {
+    visiblePokemon = [];
+    reloadVisiblePokemon(amountOfCards.amount);
+    renderPreviewCards();   
+};
 
 function reloadVisiblePokemon(end) {
     for (let i = 0; i <= end; i++) {
@@ -240,6 +245,10 @@ function reloadVisiblePokemon(end) {
         });
     };
 };
+
+function test() {
+    console.log('Test');    
+}
 
 async function fetchSingleCard(id) {
     let evolutionArr = await fetchSingleEvolutionArray(id, BASE_URL);
