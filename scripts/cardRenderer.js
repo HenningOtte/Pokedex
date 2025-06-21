@@ -43,9 +43,9 @@ function renderMain(pokemon) {
     btnDatailNav('main_btn');
 };
 
-function renderStats(pokemon) {
+function renderStats(pokemon) {    
     const info_container = document.getElementById('pokemon_info');
-    info_container.innerHTML = stats();
+    info_container.innerHTML = stats(pokemon.types[0]);
     const progess = document.getElementsByClassName('progress');
     const keys = Object.keys(maxValues);
     for (let index = 0; index < progess.length; index++) {

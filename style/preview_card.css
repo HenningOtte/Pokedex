@@ -99,6 +99,18 @@
     filter: drop-shadow(0px 0px 4px #ff7935);
 }
 
+.fighting-border {
+    border: 2px solid #ff7935;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #ff7935);
+}
+
+.rock-border {
+    border: 2px solid #c8b686;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 4px #c8b686);
+}
+
 .psychic-border {
     border: 2px solid #B35AF1;
     border-radius: 6px;
