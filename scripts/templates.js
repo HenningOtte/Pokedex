@@ -49,7 +49,7 @@ function main_infos(height, weight, experience, abillities) {
     `
 };
 
-function stats() {
+function stats(type) {
     return `
             <div class="loaded-infos" id="loaded_infos">
                 <div class="main-specs">
@@ -63,22 +63,22 @@ function stats() {
                     </div>
                     <div class="loading-bars">
                         <div class="loading-bar" id="hp">
-                            <div class="progress"></div>
+                            <div class="progress bg-${type}"></div>
                         </div>
                         <div class="loading-bar" id="attack">
-                            <div class="progress"></div>
+                            <div class="progress bg-${type}"></div>
                         </div>
                         <div class="loading-bar" id="defense">
-                            <div class="progress"></div>
+                            <div class="progress bg-${type}"></div>
                         </div>
                         <div class="loading-bar" id="special_attack">
-                            <div class="progress"></div>
+                            <div class="progress bg-${type}"></div>
                         </div>
                         <div class="loading-bar" id="special_defense">
-                            <div class="progress"></div>
+                            <div class="progress bg-${type}"></div>
                         </div>
                         <div class="loading-bar" id="speed">
-                            <div class="progress"></div>
+                            <div class="progress bg-${type}"></div>
                         </div>
                     </div>
                 </div>
