@@ -100,8 +100,8 @@ nav {
     user-select: none;
 }
 
-.navbar input {
-    height: 16px;
+.search-input {
+    height: 30px;
     width: 192px;
     padding: 8px;
     font-size: 14px;
@@ -111,9 +111,20 @@ nav {
     border-radius: 6px;
 }
 
-.navbar input:focus {
+.search-input:focus {
     outline: none;
     box-shadow: 0 0 10px white;
+}
+
+.search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background-image: url(./assets/icons/close_black.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .nothing-found {
