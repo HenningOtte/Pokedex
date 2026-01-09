@@ -1,7 +1,7 @@
 function preview_card(name, type, icons, id) {
     return `
         <div class="card ${type}" onclick="openDetailCard(${id})">
-            <img src="./assets/pokemons/${name}.png" alt="" class="pokemon-img">
+            <img src="./assets/pokemons/${name}.webp" alt="" class="pokemon-img">
             <span class="name">#${id} ${name}</span>
             <div class="types">${icons}</div>            
         </div>
@@ -17,7 +17,7 @@ function pokemon_detail(name, type, id) {
         <div class="pokemon-detail-card detail-${type}">
             <div class="close-btn-container"><button class="btn-close-card" id="close_card" onclick="closeDetailCard()"></button></div>
             <span class="pokemon-title">#${id} ${name}</span>
-            <img src="./assets/pokemons/${name}.png" alt="" class="detail-card-img">
+            <img src="./assets/pokemons/${name}.webp" alt="" class="detail-card-img">
             <div class="info-container" id="info_container">
                 <div class="detail-nav">
                     <button class="" id="main_btn" onclick="renderMain(displayedPokemon[0])">MAIN</button>
@@ -93,7 +93,7 @@ function evo_chain() {
 function evo_step(name, id) {
     return `
         <div class="evo-step" id="evo_step">
-            <img src="./assets/pokemons/${name}.png" alt="" class="evo-form-pic">
+            <img src="./assets/pokemons/${name}.webp" alt="" class="evo-form-pic">
             <div class="evo-infos">
                 <span>#${id}</span>
                 <span>${name}</span>
